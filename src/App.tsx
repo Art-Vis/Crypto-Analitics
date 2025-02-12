@@ -1,8 +1,13 @@
 import PriceChart from './components/PriceChart';
 import './App.css';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import WebApp from '@twa-dev/sdk';
 
 const App: FC = () => {
+	useEffect(() => {
+		WebApp.ready(); // Сообщаем Telegram, что приложение загружено
+		WebApp.expand(); // Разворачиваем Web App на весь экран
+	}, []);
 	return (
 		<div className='container-fluid min-vh-100 d-flex flex-column align-items-center justify-content-center bg-light py-4'>
 			<h1 className='text-center fw-bold mb-4'>Криптовалютный Анализ</h1>
